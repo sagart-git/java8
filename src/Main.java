@@ -1,3 +1,5 @@
+import com.sample.threadclasses.ThreadExample;
+
 import java.util.*;
 
 public class Main {
@@ -26,12 +28,18 @@ public class Main {
         // Collections.sort(intList,(i1, i2) -> i2.compareTo(i1));
         //we can use Collections.sort() or list.sort method
 
-        Comparator<Integer> c = (i1, i2) -> i2.compareTo(i1);
+        //Comparator<Integer> c = (i1, i2) -> i2.compareTo(i1);
         intList.sort((i1, i2) -> i2.compareTo(i1)); // or intList.sort(c);
         System.out.println(intList);
 
         //We can declare desc order Treeset by [passing comprator implementation
         //like below using lambda expression
-        TreeSet<Integer> tSet = new TreeSet<>((i1, i2) -> i2.compareTo(i1));
+       // TreeSet<Integer> tSet = new TreeSet<>((i1, i2) -> i2.compareTo(i1));
+
+        //Runnable interface implementation using annonymous class and lambda Expression
+        ThreadExample TE = new ThreadExample();
+        TE.executeFromAnonymousCls();
+        TE.fromLambdaExpr();
+
     }
 }
