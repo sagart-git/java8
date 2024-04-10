@@ -1,3 +1,4 @@
+import com.sample.VariableInnerClsAndLambda;
 import com.sample.threadclasses.ThreadExample;
 
 import java.util.*;
@@ -30,6 +31,8 @@ public class Main {
 
         //Comparator<Integer> c = (i1, i2) -> i2.compareTo(i1);
         intList.sort((i1, i2) -> i2.compareTo(i1)); // or intList.sort(c);
+        //Above can be replaced by ----  intList.sort(Comparator.reverseOrder());
+
         System.out.println(intList);
 
         //We can declare desc order Treeset by [passing comprator implementation
@@ -41,5 +44,12 @@ public class Main {
         TE.executeFromAnonymousCls();
         TE.fromLambdaExpr();
 
+        //in lambda expression this refer to outer class object
+        // but in inner class "this" refer to inner class object
+        //eg.1)
+        System.out.println("-------------------");
+        VariableInnerClsAndLambda v = new VariableInnerClsAndLambda();
+        v.m2();
+        System.out.println("-------------------");
     }
 }
