@@ -1,4 +1,4 @@
-package com.sample.threadclasses;
+package com.sample.exmpleclasses;
 
 public class ThreadExample {
 

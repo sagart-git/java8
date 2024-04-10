@@ -1,7 +1,11 @@
-import com.sample.VariableInnerClsAndLambda;
-import com.sample.threadclasses.ThreadExample;
+import com.sample.exmpleclasses.DefaultMethodUseClass;
+import com.sample.exmpleclasses.PredicateClass;
+import com.sample.interfaces.StaticMethodInterface;
+import com.sample.interfaces.VariableInnerClsAndLambda;
+import com.sample.exmpleclasses.ThreadExample;
 
 import java.util.*;
+import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,9 +16,9 @@ public class Main {
             for(int i=1;i<5;i++){System.out.println(i);}
         };
         Thread t = new Thread(r);
-        t.start();
+        //t.start();
         System.out.println("Hello world!");
-        for(int i=1;i<5;i++){System.out.println(i);}
+        //for(int i=1;i<5;i++){System.out.println(i);}
 
 
         //Comparator(i)->public int compare(Object obj1,Object obj2) -- single abstract method so Comprator is functional interface
@@ -51,5 +55,49 @@ public class Main {
         VariableInnerClsAndLambda v = new VariableInnerClsAndLambda();
         v.m2();
         System.out.println("-------------------");
+
+        System.out.println("----------default method concept start---------");
+        //default method concept
+        //we can declate concrete method insight interface using "default" keyword.
+        //Child class can directly access that default method and also
+        // if required child class can override that default method
+        //We can declare n number of default methods insight interface
+        DefaultMethodUseClass defaultMethodUseClass = new DefaultMethodUseClass();
+         defaultMethodUseClass.accessDefaultMethod();
+            System.out.println("----------default method concept end---------");
+            //If multiple interface have same default method then child class need to override that method
+            //otherwise wil get CE error due to enbiguity
+        // eg. interface A{ default void m1(){----}}
+        //interface B{ default void m1(){----}}
+        //class Child implements A,B{
+        //      public void m1(){ sop("Child implementation");
+        //      A.super.m1(); if u want to use specific interface ,methd
+        //      }
+        //
+        //      psvm(){
+        //
+        //      }
+        // }
+
+
+        System.out.println("----------static method insight interface concept start---------");
+
+        StaticMethodInterface.staticMethod();
+        System.out.println("----------static method insight interface concept end---------");
+
+        System.out.println("\n----------Predicate interface concept start---------");
+        PredicateClass predicateClass = new PredicateClass();
+        predicateClass.executePredicate("Sagar");
+
+        Predicate<String> p1 = (s) -> s.length()>5;
+        Predicate<String> p2 = (s) -> s.contains("Z");
+        String name = "Sagart";
+        predicateClass.executePredicate((s) -> s.length()>5,name,"Length of given string is greater than 5 :");
+        predicateClass.executePredicate(p1.negate(),name,"Length of given string is not greater than 5 :");
+        predicateClass.executePredicate(p1.and(p2),name,"Length of given string is greater than 5 AND string contains Z :");
+        predicateClass.executePredicate(p1.or(p2),name,"Length of given string is greater than 5 OR string contains Z :");
+
+        System.out.println("----------Predicate interface concept End---------");
+
     }
 }

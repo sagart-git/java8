@@ -1,7 +1,18 @@
-1.Lambda expression
+1.Lambda expression : to implement functional interface.
 2.Stream API
 3.Optional
+4.default methos
 
+5.static method : to declare general utility methods. to call -  Interface_name.static_method_name;
+    -Overriding concept not applicable for static methods.
+    -If child class override same static method(non-static method with same name ) in child class then it will be child class methos not overridden method
+
+6.Predicate :
+7.Function
+8.Consumer
+9.Supplier
 
 
 *.AutomicInteger
+*.Auto boxing/auto-unboxing
+*.Generics

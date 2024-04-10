@@ -1,4 +1,4 @@
-package com.sample.functionalInterfaces;
+package com.sample.interfaces;
 
 @FunctionalInterface
 public interface FunInterface {
