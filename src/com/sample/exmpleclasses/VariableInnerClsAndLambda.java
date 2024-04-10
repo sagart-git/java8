@@ -1,4 +1,6 @@
-package com.sample.interfaces;
+package com.sample.exmpleclasses;
+
+import com.sample.interfaces.FunInterface;
 
 public class VariableInnerClsAndLambda {
 

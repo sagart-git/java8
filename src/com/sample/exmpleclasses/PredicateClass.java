@@ -17,4 +17,18 @@ public class PredicateClass {
     public void executePredicate(Predicate<String> p,String str, String msg){
         System.out.println(msg +" "+p.test(str));
     }
+
+    public void checkStringStartsWith(String[] arr, char c){
+        Predicate<String> checkStartsWith = (s) -> s.charAt(0) == c;
+        Predicate<String> checkIsBlankOrNull = (s) ->null == s || s.isEmpty();
+        for(String s:arr){
+            if(checkIsBlankOrNull.test(s)){
+                System.out.println("Invalid value.");
+            }else if(checkStartsWith.test(s.toLowerCase())  ){
+                System.out.println(s+" Starts with "+c);
+            }else{
+                System.out.println(s+" not starts with "+c);
+            }
+        }
+    }
 }

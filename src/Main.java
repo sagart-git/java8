@@ -1,10 +1,9 @@
-import com.sample.exmpleclasses.DefaultMethodUseClass;
-import com.sample.exmpleclasses.PredicateClass;
+import com.sample.beans.Employee;
+import com.sample.exmpleclasses.*;
 import com.sample.interfaces.StaticMethodInterface;
-import com.sample.interfaces.VariableInnerClsAndLambda;
-import com.sample.exmpleclasses.ThreadExample;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class Main {
@@ -97,7 +96,27 @@ public class Main {
         predicateClass.executePredicate(p1.and(p2),name,"Length of given string is greater than 5 AND string contains Z :");
         predicateClass.executePredicate(p1.or(p2),name,"Length of given string is greater than 5 OR string contains Z :");
 
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter Character : ");
+        char c = s.next().toLowerCase().charAt(0);
+        System.out.println("-----checkStartsWith s or not ");
+        String[] nameArr = {"Sagar","Jac","","Sukanya","Rohit","","Virat","Yuvraj",null};
+        predicateClass.checkStringStartsWith(nameArr,c);
+
+        //isEqual(Object obj) is static method present in Predicate
+        Predicate<String> pr = Predicate.isEqual("SAGAR");
+        System.out.println(pr.test("SAGAR"));
+
         System.out.println("----------Predicate interface concept End---------");
+
+        System.out.println("----------Function interface concept Start---------");
+        FunctionClass fc = new FunctionClass();
+        fc.getStringLength("Sagar");
+
+        Function<Integer,Integer> f = n -> n*n;
+        fc.getResult(f,10);
+        System.out.println("----------Function interface concept Start---------");
+
 
     }
 }
