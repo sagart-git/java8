@@ -1,10 +1,10 @@
 import com.sample.beans.Employee;
+import com.sample.beans.InitializeEmployees;
 import com.sample.exmpleclasses.*;
 import com.sample.interfaces.StaticMethodInterface;
 
 import java.util.*;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.function.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -114,9 +114,28 @@ public class Main {
         fc.getStringLength("Sagar");
 
         Function<Integer,Integer> f = n -> n*n;
+
+
         fc.getResult(f,10);
-        System.out.println("----------Function interface concept Start---------");
 
+        //Function to get employee list which are developer
+        Predicate<Employee> checkDesignation = (emp)->emp.getDesignation().equalsIgnoreCase("Developer");
+        Predicate<Employee> checkSal = (emp)->emp.getSalary()>50000;
 
+        fc.getDesignatedEmp( "Tester",InitializeEmployees.getEmpList(),checkDesignation.and(checkSal));
+        System.out.println("----------Function interface concept End---------");
+
+        System.out.println("----------Consumer interface concept Start---------");
+            ConsumerClass consumerClass = new ConsumerClass();
+            consumerClass.executeConsumer();
+        System.out.println("----------Consumer interface concept End---------");
+
+        System.out.println("----------Supplier interface concept Start---------");
+             Supplier<String> supplier = () ->  { return "Sagar";};
+             System.out.println("Supplier result : "+ supplier.get());
+
+             SupplierClass supplierClass = new SupplierClass();
+             supplierClass.randomPasswordGen();
+        System.out.println("----------Supplier interface concept END---------");
     }
 }

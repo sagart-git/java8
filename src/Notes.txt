@@ -7,8 +7,16 @@
     -Overriding concept not applicable for static methods.
     -If child class override same static method(non-static method with same name ) in child class then it will be child class methos not overridden method
 
-6.Predicate : Always return boolean value
+6.Predicate : Always return boolean value.
+    -p1.and(p2).test(T); return true if both predicate satisfied
+    -p1.or(p2).test(T); return true if any predicate satisfied
+    -p1.negate(); - return oposite result
+    -static <T> Predicate<T> isEqual(Object targetRef) eg Predicate<String> pr = Predicate.isEqual("SAGAR");
+                                                                      System.out.println(pr.test("SAGAR"));
 7.Function : It can return any value.
+    -f1.andThen(f2).apply(T); first f1 executes then f2 will be executes.
+    -f1.compose(f2).apply(T); first f2 executes then f1 will be executes.
+
 8.Consumer
 9.Supplier
 
