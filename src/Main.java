@@ -1,5 +1,6 @@
 import com.sample.beans.Employee;
 import com.sample.beans.InitializeEmployees;
+import com.sample.java8concept.MethodConstructorRefExecutor;
 import com.sample.exmpleclasses.*;
 import com.sample.interfaces.StaticMethodInterface;
 
@@ -136,6 +137,31 @@ public class Main {
 
              SupplierClass supplierClass = new SupplierClass();
              supplierClass.randomPasswordGen();
+
         System.out.println("----------Supplier interface concept END---------");
+
+
+        System.out.println("----------Premitive type functional interface concept END---------");
+        System.out.println("----------Premitive type Predicate interface concept Start---------");
+       //int type predicate
+        IntPredicate ip = (no) -> no>10;
+        System.out.println(ip.test(4));
+
+        //double type predicate
+        DoublePredicate dp = (no) -> no>10.1;
+        System.out.println(dp.test(4.1));
+
+        //double type predicate
+        LongPredicate lp = (no) -> no>3456789;
+        System.out.println(lp.test(499999));
+
+
+        System.out.println("----------Premitive type Predicate interface concept END---------");
+
+
+        System.out.println("----------Method reference concept Start---------");
+        MethodConstructorRefExecutor.execute();
+        System.out.println("----------Method reference concept END---------");
+
     }
 }
