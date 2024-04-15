@@ -5,6 +5,8 @@ import com.sample.beans.InitializeEmployees;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
 public class ConsumerClass {
     public void executeConsumer(){
@@ -15,5 +17,7 @@ public class ConsumerClass {
             }
         };
         consumer.accept(InitializeEmployees.getEmpList());
+       // Stream stream = InitializeEmployees.getEmpList().stream()
+      
     }
 }

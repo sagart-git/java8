@@ -10,8 +10,13 @@ import java.util.function.*;
 public class Main {
     public static void main(String[] args) {
 
+        //InitializeEmployees.getEmpList().stream().
+        //IntFunction<String> iff = (i) -> String.valueOf(i+i);
+        //System.out.println(iff.apply(990));
 
-        Runnable r = ()->{
+//        Function<Integer,String> fis = (i) -> i+""+i;
+//        System.out.println(fis.apply(90));
+                Runnable r = ()->{
             System.out.println("Sample");
             for(int i=1;i<5;i++){System.out.println(i);}
         };
